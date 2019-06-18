@@ -1,6 +1,6 @@
 'use strict';
 
-const events = require('./event');
+const events = require('./eventLog');
 
 const logger = module.exports = exports = {};
 

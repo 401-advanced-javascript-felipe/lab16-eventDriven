@@ -22,8 +22,7 @@ describe('Read, Upper, Write, Emmiters and Errors', () => {
     });
     
   });
-
-
+  
   describe('toWrite()', () => {
     it('should ', () => {
       let message = 'hello';
