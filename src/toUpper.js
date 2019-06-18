@@ -4,7 +4,6 @@
  * Turns buffer to uppercase string
  * @module toUpper
  * @param {Buffer}
- * 
  */
 module.exports = (data) => {
   data = Buffer.from(data);

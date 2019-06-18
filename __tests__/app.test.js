@@ -19,11 +19,11 @@ describe('promisifyFS and Upper', () => {
       });
     });
 
-    it('should return buffer', (done) => {
+    it('data should be string', (done) => {
       let file = 'file1.txt';
       promisifyFS.readFile(file, (err,data) => {
         expect(err).toBeUndefined();
-        expect(data instanceof Buffer).toBeTruthy();
+        expect(data).toBe('File Contents');
         done();
       });
     });
@@ -39,11 +39,11 @@ describe('promisifyFS and Upper', () => {
       });
     });
 
-    it('should ', (done) => {
+    it('data should be string', (done) => {
       let file = 'file1.txt';
       promisifyFS.writeFile(file, (err,data) => {
         expect(err).toBeUndefined();
-        expect(data instanceof Buffer).toBeTruthy();
+        expect(data).toBe('File Contents');
         done();
       });
     });
