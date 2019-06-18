@@ -1,6 +1,6 @@
 ## Lab 16 Event Driven 
 
-### Author: Felipe Delatorre
+![](https://travis-ci.com/401-advanced-javascript-felipe/lab16-eventDriven.svg?branch=master)
 
 ### Links and Resources
 * [submission PR](http://xyz.com)
