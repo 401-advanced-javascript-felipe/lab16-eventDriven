@@ -1,35 +1,78 @@
 'use strict';
 
-const toRead = require('../src/readFile');
+const promisifyFS = require('./__mock__/promisifyFS.mock');
 const toUpper = require('../src/toUpper');
-const toWrite = require('../src/writeFile');
+
+const eventLog = require('../src/events/event');
+require('../src/events/logger');
 
 
-describe('Read, Upper, Write, Emmiters and Errors', () => {
+describe('promisifyFS and Upper', () => {
 
-  describe('toRead()', () => {
-    it('should ', () => {
-      expect(true).toBeTruthy();
+  describe('readFile()', () => {
+
+    it('should return error if bad file', done => {
+      let file = 'bad.txt';
+      promisifyFS.readFile(file, (err, data) => {
+        expect(err).toBeDefined();
+        done();
+      });
     });
 
+    it('should return buffer', (done) => {
+      let file = 'file1.txt';
+      promisifyFS.readFile(file, (err,data) => {
+        expect(err).toBeUndefined();
+        expect(data instanceof Buffer).toBeTruthy();
+        done();
+      });
+    });
+  });
+
+  describe('writeFile()', () => {
+
+    it('should return error if bad file', (done) => {
+      let file = 'bad.txt';
+      promisifyFS.writeFile(file, (err, data) => {
+        expect(err).toBeDefined();
+        done();
+      });
+    });
+
+    it('should ', (done) => {
+      let file = 'file1.txt';
+      promisifyFS.writeFile(file, (err,data) => {
+        expect(err).toBeUndefined();
+        expect(data instanceof Buffer).toBeTruthy();
+        done();
+      });
+    });
   });
 
   describe('toUpper()', () => {
-    it('should turn string into uppercase', () => {
-      let message = 'hello';
-      message = toUpper(message);
-      expect(message).toBe('HELLO');
+    it('should return a string uppercased', () => {
+      let str = 'hello';
+      str = toUpper(str);
+      expect(str).toBe('HELLO');
     });
-    
   });
-  
-  describe('toWrite()', () => {
-    it('should ', () => {
-      let message = 'hello';
-      message = toUpper(message);
-      expect(message).toBe('HELLO');
-    });
-    
+});
+
+
+describe('Events', () => {
+  it('logs on success', () => {
+    let spy = jest.spyOn(console, 'log');
+    eventLog.emit('log');
+
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
   });
 
+  it('logs error on success', () => {
+    let spy = jest.spyOn(console, 'log');
+    eventLog.emit('error');
+
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
 });

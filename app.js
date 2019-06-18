@@ -1,17 +1,21 @@
 'use strict';
 
-const toRead = require('./src/readFile');
 const toUpper = require('./src/toUpper');
-const toWrite = require('./src/writeFile');
+const promisifyFS = require('./src/promisifyFS');
 const eventLog = require('./src/events/event');
 require('./src/events/logger');
 
 
 
+/**
+ * Opens and saves the text file to uppercase
+ * @param {string} file
+ */
 const alterFile = (file) => {
-  toRead(file)
+  promisifyFS.readFile(file)
     .then(data => {
-      toWrite(file, Buffer.from(toUpper(data)));
+      data = toUpper(data);
+      promisifyFS.writeFile(file, data);
     })
     .then(eventLog.emit('log', file))
     .catch(error =>{
