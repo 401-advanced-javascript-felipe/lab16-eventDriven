@@ -1,6 +1,6 @@
 'use strict';
 
-const promisifyFS = require('./__mock__/promisifyFS.mock');
+const promisifyFS = require('../__mock__/promisifyFS.mock');
 const toUpper = require('../src/toUpper');
 
 const eventLog = require('../src/events/event');
