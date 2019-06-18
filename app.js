@@ -8,8 +8,9 @@ require('./src/events/logger');
 
 
 /**
- * Opens and saves the text file to uppercase
- * @param {string} file
+ * Opens and on success writes a file
+ * on failure emits error
+ * @param {string} file - file to be read
  */
 const alterFile = (file) => {
   promisifyFS.readFile(file)

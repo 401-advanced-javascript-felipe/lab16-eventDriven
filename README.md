@@ -5,7 +5,7 @@
 * [travis](https://travis-ci.com/401-advanced-javascript-felipe/lab16-eventDriven/builds/115902319)
 
 #### Documentation
-* [jsdoc](./docs) (Server assignments)
+* [jsdoc](./docs)
 
 #### UML
 ![](./assets/----.jpg)
