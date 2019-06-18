@@ -4,7 +4,8 @@
   "description": "Events Lab",
   "main": "app.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest",
+    "test-watch": "jest --watch",
     "lint": "eslint \"src/*.js\""
   },
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "eslint": "^5.16.0",
     "jest": "^23.6.0",
-    "jsdoc": "^3.6.2"
+    "jsdoc": "^3.6.2",
+    "mock-fs": "^4.10.1"
   }
 }
