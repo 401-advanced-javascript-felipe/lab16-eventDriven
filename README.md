@@ -1,47 +1,30 @@
-# LAB - 
+## Lab 16 Event Driven 
 
-## Project Name
-
-### Author: Student/Group Name
+### Author: Felipe Delatorre
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+* [submission PR](https://github.com/401-advanced-javascript-felipe/lab16-eventDriven/pull/1)
+* [travis](https://travis-ci.com/401-advanced-javascript-felipe/lab16-eventDriven/builds/115902319)
 
 #### Documentation
-* [api docs](http://xyz.com) (API servers)
-* [jsdoc](http://xyz.com) (Server assignments)
-* [styleguide](http://xyz.com) (React assignments)
+* [jsdoc](./docs)
 
 ### Modules
-#### `modulename.js`
-##### Exported Values and Methods
+#### `logger.js`
+listens for and responds to events by doing a console.log() with something useful about the event.
 
-###### `foo(thing) -> string`
-Usage Notes or examples
+#### `app.js`
+Reads the file from the file system. Converts it’s contents to upper case. Writes it back to the file system
+Following the write operation, report back to the user (console.log) the status.
 
-###### `bar(array) -> array`
-Usage Notes or examples
-
-### Setup
-#### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+#### `event.js`
+Creates an event module that has a single event emitter instance
 
 #### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
-  
+* `npm start` - Reads `123.txt` turns in to uppercase. Then emits to logger.js to console.log() onto the terminal.
+
 #### Tests
-* How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
+`npm test` - Will run test for functions that I have written 
 
 #### UML
-![](./assets/----.jpg)
-# lab16-eventDriven
+![](./assets/lab16.jpg)
