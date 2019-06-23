@@ -1,26 +1,28 @@
 'use strict';
 
+
+/**
+ * @module logger
+ */
+
 const events = require('./event');
 
 const logger = module.exports = exports = {};
 
 /**
  * On success it console.logs
- * @module events
- * @param {string}
+ * @param {string} data - Data to print to screen
  */
 logger.log = (file) => {
   console.log(`${file} saved`);
 };
 
-
 /**
  * On erros it console.logs errors
- * @module events
- * @param {string}
+ * @param {string} data - Data to print to screen
  */
 logger.error = (file) => {
-  console.log(`${file} not saved`);
+  console.error(`${file} not saved`);
 };
 
 events.on('log', logger.log);
